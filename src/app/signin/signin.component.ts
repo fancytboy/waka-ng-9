@@ -4,20 +4,17 @@ import { FirebaseService } from '../services/firebase.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
   isSignedIn = false;
-  
-  constructor(public firebaseService : FirebaseService) { }
 
-  ngOnInit(): void {
-  }
+  constructor(public firebaseService: FirebaseService) {}
 
-  async onSignin(email: string, password: string){
+  ngOnInit(): void {}
+
+  async onSignin(email: string, password: string) {
     await this.firebaseService.signin(email, password);
-    if (this.firebaseService.isLoggedIn) 
-    this.isSignedIn = true
+    if (this.firebaseService.isLoggedIn) this.isSignedIn = true;
   }
-
 }

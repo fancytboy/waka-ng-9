@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from './services/firebase.service';
 
 @Component({
@@ -10,7 +10,8 @@ export class AppComponent implements OnInit{
   title = 'demo-app';
   isSignedIn = false;
   showSignIn = true;
-
+  
+  @Output() isLogout = new EventEmitter<void>();
   constructor(public firebaseService : FirebaseService){}
   ngOnInit(){
     if(localStorage.getItem('user') !== null)
@@ -21,5 +22,6 @@ export class AppComponent implements OnInit{
   logout(){
     this.isSignedIn = false;
     this.firebaseService.logout()
+    this.isLogout.emit();
   }
 }

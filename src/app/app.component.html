@@ -1,1 +1,15 @@
+<nav id="navbar" class="" *ngIf="isSignedIn">
+  <div class="nav-wrapper">
+    <!-- <div class="logo">
+      <a href="#home"><i class="fa fa-angellist"></i> Logo</a>
+    </div> -->
+
+    <ul id="menu">
+      <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
+      <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+      <li><a (click)="logout()" >Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
