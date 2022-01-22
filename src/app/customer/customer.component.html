@@ -1,0 +1,80 @@
+<div class="rw mt-20 p-20">
+    <div class="cl">
+        <form class="form mx-auto">
+            <h3 class="header-text">Add New Customer</h3>
+
+            <label class="label" for="username">First name: </label>
+            <input class="form-control" type="text" placeholder="First name" #fname>
+
+            <label class="label" for="password">Last name: </label>
+            <input class="form-control" type="text" placeholder="Last name" #lname>
+
+            <label class="label" for="password">Email: </label>
+            <input class="form-control" type="email" placeholder="Email" #email>
+
+            <label class="label" for="password">Phone: </label>
+            <input class="form-control" type="text" placeholder="Phone" #phone>
+
+            <label class="label" for="password">Age: </label>
+            <input class="form-control" type="number" placeholder="Age" min="0" #age>
+
+            <button class="btn mb-5"
+                (click)="createCustomer(fname.value, lname.value, email.value, phone.value, age.value)"
+                type="button">Add Customer</button>
+        </form>
+    </div>
+    <div class="cl">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of listCustomers">
+                    <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.age }}</td>
+                    <td>
+                        <button class="btn-transparent mx-2" (click)="openModal(customer.id)"><i
+                                class="fs-14 fa-solid fa-pencil text-info"></i></button>
+                        <button class="btn-transparent mx-2" (click)="deleteCustomer(customer.id)"><i
+                                class="fs-14 fa-solid fa-trash text-danger"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<modal #htmlInsideModal>
+    <ng-template #modalBody>
+        <form class="form mx-auto">
+            <h3 class="header-text">Update Customer</h3>
+    
+            <label class="label" for="username">First name: </label>
+            <input class="form-control" type="text" placeholder="First name" [value]="customer.first_name" #_fname>
+    
+            <label class="label" for="password">Last name: </label>
+            <input class="form-control" type="text" placeholder="Last name" [value]="customer.last_name" #_lname>
+    
+            <label class="label" for="password">Email: </label>
+            <input class="form-control" type="email" placeholder="Email" [value]="customer.email" #_email>
+    
+            <label class="label" for="password">Phone: </label>
+            <input class="form-control" type="text" placeholder="Phone" [value]="customer.phone" #_phone>
+    
+            <label class="label" for="password">Age: </label>
+            <input class="form-control" type="number" placeholder="Age" [valueAsNumber]="customer.age" min="0" #_age>
+    
+            <button class="btn mb-5"
+                (click)="updateCustomer(customer.id, _fname.value, _lname.value, _email.value, _phone.value, _age.value)"
+                type="button">Save</button>
+        </form>
+    </ng-template>
+</modal>

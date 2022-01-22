@@ -1,0 +1,21 @@
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+
+<form class="signup-form">
+    <h3 class="header-text">Signup</h3>
+
+    <label class="label" for="username">Email</label>
+    <input class="form-control" type="text" placeholder="Email or Phone" id="username" #emailSignup>
+
+    <label class="label" for="password">Password</label>
+    <input class="form-control" type="password" placeholder="Password" id="password" #passwordSignup>
+
+    <label class="label" for="password">Confirm Password</label>
+    <input class="form-control" type="password" placeholder="Confirm Password" #passwordConfirmSignup>
+
+    <button class="btn mb-5" (click)="onSignup(emailSignup.value, passwordSignup.value, passwordConfirmSignup.value)"
+        type="button">Create account</button>
+    <a class="btn-link" routerLink="/">Already have an account ?. Login</a>
+</form>

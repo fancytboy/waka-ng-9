@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <div class="cards_wrap">
+        <div *ngFor="let user of listUsers" class="card_item">
+            <div class="card_inner">
+                <img src="{{user.avatar}}">
+                <div class="role_name">{{user.first_name}} {{user.last_name}}</div>
+                <div class="real_name">{{user.email}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<button (click)="logout()">Logout</button>

@@ -1,0 +1,17 @@
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+
+<form class="signup-form">
+    <h3 class="header-text">Login</h3>
+
+    <label class="label" for="username">Email</label>
+    <input class="form-control" required type="text" placeholder="Email or Phone" id="username" #email>
+
+    <label class="label" for="password">Password</label>
+    <input class="form-control" required type="password" placeholder="Password" id="password" #password>
+
+    <button class="btn mb-5" (click)="onSignin(email.value, password.value)" type="button">Log In</button>
+    <a class="btn-link" routerLink="/signup" type="button">Don't have an account yet? Create one</a>
+</form>
